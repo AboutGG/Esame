@@ -1,30 +1,38 @@
-import {Component} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, inject, OnInit} from '@angular/core';
+import {AuthService} from "../../services/auth.service";
+import {User} from "../../models/User";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
-  loginForm = new FormGroup({
-    email: new FormControl('', Validators.email),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(6),
-    ]),
-  });
 
-  // showInvalidInput: boolean = false;
-  // passwordInputType: string = 'password';
+export class LoginComponent implements OnInit {
+    authService = inject(AuthService);
+    Users!: User[];
+    loginForm = new FormGroup({
+        email: new FormControl('', Validators.email),
+        password: new FormControl('', [
+            Validators.required,
+            Validators.minLength(6),
+        ]),
+    });
 
-  // showPassword() {
-  //   this.passwordInputType === 'password'
-  //     ? (this.passwordInputType = 'text')
-  //     : (this.passwordInputType = 'password');
-  // }
+    ngOnInit() {
+        this.authService.getUsers().subscribe({
+            next: (res) => {
+                this.Users = res;
+                console.log(this.Users);
+            }
+        });
+    }
 
-  Submit() {
-    console.log(this.loginForm.value);
-  }
+    Submit() {
+        this.Users.map(({email, password}) => {
+            if (email === this.loginForm.value.email && password == this.loginForm.value.password)
+                return console.log(true);
+        })
+    }
 }

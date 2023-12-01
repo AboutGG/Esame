@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-registration',
@@ -7,6 +8,7 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent {
+  authService = inject(AuthService);
 
   registrationForm = new FormGroup({
     name: new FormControl(''),
@@ -16,6 +18,7 @@ export class RegistrationComponent {
   });
 
   Submit(){
-    console.log(this.registrationForm.value);
+    this.authService.addUser(this.registrationForm.value).subscribe({
+    })
   }
 }
