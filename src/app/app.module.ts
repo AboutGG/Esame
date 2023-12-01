@@ -7,12 +7,14 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RegistrationComponent} from './components/registration/registration.component';
 import {HttpClientModule} from "@angular/common/http";
+import { NavbarSecondComponent } from './components/navbar-second/navbar-second.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
-        RegistrationComponent
+        RegistrationComponent,
+        NavbarSecondComponent
     ],
     imports: [
         BrowserModule,
