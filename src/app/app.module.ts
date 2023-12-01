@@ -8,13 +8,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { NavbarFirstComponent } from './components/navbar-first/navbar-first.component';
 import {HttpClientModule} from "@angular/common/http";
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    NavbarFirstComponent
+    NavbarFirstComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
