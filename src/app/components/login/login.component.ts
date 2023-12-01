@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     Submit() {
         this.Users.map(({email, password}) => {
             if (email === this.loginForm.value.email && password == this.loginForm.value.password)
-                return console.log(true);
+                localStorage.setItem("token", "diocane");
         })
     }
 }
