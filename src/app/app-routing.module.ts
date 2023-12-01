@@ -4,12 +4,14 @@ import {LoginComponent} from "./components/login/login.component";
 import {RegistrationComponent} from "./components/registration/registration.component";
 import { NavbarFirstComponent } from './components/navbar-first/navbar-first.component';
 import {NavbarSecondComponent} from "./components/navbar-second/navbar-second.component";
+import {HomeComponent} from "./components/home/home.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'navbar-first', component: NavbarFirstComponent },
-  {path: "navbar", component: NavbarSecondComponent}
+  { path: "navbar", component: NavbarSecondComponent },
+  { path: "home", component: HomeComponent}
 ];
 
 @NgModule({
