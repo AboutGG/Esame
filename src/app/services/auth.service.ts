@@ -1,6 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {catchError, Observable} from "rxjs";
+import {User} from "../models/User";
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,22 @@ import {Observable} from "rxjs";
 export class AuthService {
   authClient= inject(HttpClient);
 
-  addUser(dio:any){
-    this.authClient.post("http://localhost:3000/users", dio);
+  addUser(dio:any): Observable<any>{
+    return this.authClient.post("http://localhost:3000/users", dio)
+        .pipe(
+            catchError(err => {
+              if (err.status !== 200) {
+                console.error('Errore:', err);
+                throw new Error('Errore durante la richiesta, status');
+              } else {
+                console.error('Altro errore:', err);
+                throw new Error('Errore durante la richiesta');
+              }
+            })
+        );
   }
 
-  getUsers(): Observable<any>{
-    return this.authClient.get("http://localhost:3000/users");
+  getUsers(): Observable<User[]>{
+    return this.authClient.get<User[]>("http://localhost:3000/users");
   }
 }
