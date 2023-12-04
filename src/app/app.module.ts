@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { NavbarSecondComponent } from './components/navbar-second/navbar-second.component';
 import { NavbarFirstComponent } from './components/navbar-first/navbar-first.component';
 import { ChatsListComponent } from './components/chats-list/chats-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ChatsListComponent } from './components/chats-list/chats-list.component
         RegistrationComponent,
         NavbarSecondComponent,
         NavbarFirstComponent,
-        ChatsListComponent
+        ChatsListComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,

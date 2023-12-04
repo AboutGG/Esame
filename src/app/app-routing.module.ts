@@ -5,6 +5,7 @@ import {RegistrationComponent} from "./components/registration/registration.comp
 import { NavbarFirstComponent } from './components/navbar-first/navbar-first.component';
 import {NavbarSecondComponent} from "./components/navbar-second/navbar-second.component";
 import { ChatsListComponent } from './components/chats-list/chats-list.component';
+import {HomeComponent} from "./components/home/home.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'navbar-first', component: NavbarFirstComponent },
   { path: 'navbar', component: NavbarSecondComponent },
   { path: 'chats-list', component: ChatsListComponent },
+  { path: "navbar", component: NavbarSecondComponent },
+  { path: "home", component: HomeComponent}
 ];
 
 @NgModule({
