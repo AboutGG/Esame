@@ -1,0 +1,11 @@
+<div class="card" *ngFor="let card of cards">
+  <div class="card-body bg-black d-flex  text-center align-items-center ">
+    <div>
+        <i class="bi bi-person-circle text-white icon"></i>
+      </div>
+      <div class="text ms-5">
+        <h5 class="text-white">{{card.name}}</h5>
+        <h6 class="text-white">{{card.message}}</h6>
+      </div>
+  </div>
+</div>
